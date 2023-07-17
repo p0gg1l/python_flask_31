@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename = 'css/style.css')}}">
+    {% block title -%}
+    {% if title %}
+    <title>Про Flask - {{title}}</title>
+    {% else %}
+    <title>Про Flask</title>
+    {% endif %}
+    {% endblock %}
+</head>
+<body>
+{% block content -%}
+
+    {%- block mainmenu -%}
+<ul class="mainmenu">
+
+    <li><a href="{{url_for('index')}}">Главная</a></li>
+    <li><a href="{{url_for('addPost')}}">Добавление записи</a></li>
+    <li><a href="{{url_for('login')}}">Авторизация</a></li>
+
+</ul>
+    {% endblock mainmenu -%}
+<div class="clear"></div>
+<div class="content">
+    {% if title -%}
+    <h1>Про Flask - {{title}}</h1>
+    {% else -%}
+    <h1>Про Flask</h1>
+    {% endif %}
+
+{% endblock %}
+    </div>
+</body>
+</html>
